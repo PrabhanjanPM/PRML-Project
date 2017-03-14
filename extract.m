@@ -7,13 +7,20 @@ for ii = 1:numel(filelist)
 	if(regexp(filelist{ii},"^\\.\\.?$"))
 		continue;
 	endif
-	filelist{ii}
 	[audio,fs] = audioread(["../dataset/ASVspoof2017_train_dev/wav/train/" filelist{ii}]);
 	[ceps] = mfcc(audio,fs);
 	label = 0;
+	filelist{ii}
 	if(ii>=1511)
 		label = 1
 	endif
-	save(["features/" filelist{ii} "cepstral_features"],"ceps","label") 
-	csvwrite(["features/" filelist{ii} "features.csv"], ceps);
+	features = [];
+	for columns=1:size(ceps)(2)
+		if(any(isnan(ceps(:,columns)))==1)
+			continue;
+		endif
+		features = [features [ceps(:,columns);0] ];
+		%csvwrite(["features/" filelist{ii} num2str(columns) "features.csv"], [ceps(:,columns);label]');
+	endfor
+	csvwrite(["features/" filelist{ii} "features.csv"], features');
 endfor
