@@ -19,7 +19,7 @@ for ii = 1:numel(filelist)
 		if(any(isnan(ceps(:,columns)))==1)
 			continue;
 		endif
-		features = [features [ceps(:,columns);0] ];
+		features = [features [ceps(:,columns);label] ];
 		%csvwrite(["features/" filelist{ii} num2str(columns) "features.csv"], [ceps(:,columns);label]');
 	endfor
 	csvwrite(["features/" filelist{ii} "features.csv"], features');
