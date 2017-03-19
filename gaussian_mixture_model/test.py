@@ -40,8 +40,8 @@ data = np.genfromtxt("data",delimiter=",")
 #d = data.shape[1]
 d = 1
 n = data.shape[0]
-mean1 = (data[0]+data[1])/2
-mean2 = (data[1600]+data[1877])/2
+mean1 = (data[0]+data[188])/2
+mean2 = (data[2002]+data[1877])/2
 one   = np.ones((d,))
 cov1  = np.eye(d)*0.0001
 cov2  = np.eye(d)*0.0001
@@ -73,15 +73,15 @@ for i in range(0,50):
         #    print "Class1"
         #else:
         #    print "Class2"
-        if(likelihood1>likelihood2 and l>1508):
+        if(likelihood1>likelihood2 and l>1507):
             class1_false = class1_false +1 
-        if(likelihood2>likelihood1 and l<=1508):
+        if(likelihood2>likelihood1 and l<=1507):
             class1_missed = class1_missed + 1 
+        if(likelihood1>likelihood2 and l<=1507):
+            correct = correct+1
+        if(likelihood1<likelihood2 and l>1507):
+            correct = correct+1
         l = l+1
-        if(likelihood1>likelihood2 and l<=1508):
-            correct = correct+1
-        if(likelihood1<likelihood2 and l>1508):
-            correct = correct+1
         p1X.append(likelihood1)
         p2X.append(likelihood2)
 
