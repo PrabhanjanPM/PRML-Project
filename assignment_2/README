@@ -1,0 +1,10 @@
+Run the following commands- 
+
+python learning_curve1.py
+python logistic_regression.py
+python test_logistic_regression.py
+python logistic_learning_curves.py
+python train.py 
+python test.py 
+python gmm_learning_curves.py
+
