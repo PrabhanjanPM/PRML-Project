@@ -90,7 +90,7 @@ for i in range(1,16):
 	Y=Y1[0:i]
 	m=np.size(Y)
 	err[c],theta=error(X,Y,theta,m)
-	print theta
+        print "model- ", theta
 	err_validate[c]=Cost_Function(validation_x,validation_y,theta,np.size(validation_y))
 	#err_validate[c],theta=error(validation_x,validation_y,theta,np.size(validation_y))
 	c=c+1
