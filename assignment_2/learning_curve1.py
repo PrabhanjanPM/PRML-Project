@@ -3,7 +3,7 @@ import math
 import matplotlib.pyplot as plt
 from numpy.linalg import inv
 
-data1 = np.genfromtxt("data",delimiter=',')
+data1 = np.genfromtxt("../features/data",delimiter=',')
 m=data1.size
 b=np.ones(m)
 c=np.append(np.ones(1508),np.zeros(1508))
