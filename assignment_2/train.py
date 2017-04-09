@@ -53,9 +53,8 @@ for k in range(1,11):
         data = data_
         print "Using all samples"
     n = data.shape[0]
-    print data.shape
     mean1 = (data[0]+data[1])/2
-    mean2 = (data[step*k+2]+data[step*k+3])/2
+    mean2 = (data[step*k+10]+data[step*k+11])/2
     one   = np.ones((d,))
     cov1  = np.eye(d)*0.001
     cov2  = np.eye(d)*0.001
