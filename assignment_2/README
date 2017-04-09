@@ -7,4 +7,4 @@ python logistic_learning_curves.py
 python train.py 
 python test.py 
 python gmm_learning_curves.py
-
+./clean.sh

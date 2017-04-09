@@ -84,19 +84,21 @@ err_validate=np.zeros(15)
 c=0
 validation_x=X1[1500:3000]
 validation_y=Y1[1500:3000]
-for i in range(1,16):
-	i=i*100
+for k in range(1,16):
+	i=k*100
 	X=X1[0:i]
 	Y=Y1[0:i]
 	m=np.size(Y)
 	err[c],theta=error(X,Y,theta,m)
         print "model- ", theta
+        np.savetxt("mega_model"+str(k), theta)
 	err_validate[c]=Cost_Function(validation_x,validation_y,theta,np.size(validation_y))
 	#err_validate[c],theta=error(validation_x,validation_y,theta,np.size(validation_y))
 	c=c+1
 print err,err_validate
-plt.plot(np.arange(0,1500,100),err)
-plt.plot(np.arange(0,1500,100),err_validate)
+plt.plot(np.arange(0,1500,100),err, label='training curve')
+plt.plot(np.arange(0,1500,100),err_validate, label='testing curve')
+plt.legend()
 plt.show()
 
 
