@@ -3,7 +3,7 @@ import math
 import matplotlib.pyplot as plt
 from numpy.linalg import inv
 
-data1 = np.genfromtxt("data",delimiter=',')
+data1 = np.genfromtxt("../features/data",delimiter=',')
 m=data1.size
 b=np.ones(m)
 c=np.append(np.ones(1508),np.zeros(1508))
@@ -83,7 +83,7 @@ plt.ylabel('Number of Iterations')
 plt.title('Cost Function')
 plt.show()
 
-data1 = np.genfromtxt("data",delimiter=',')
+data1 = np.genfromtxt("../features/data",delimiter=',')
 m=data1.size
 b=np.ones(m)
 plt.plot(data1,c,'ro')
@@ -93,7 +93,7 @@ plt.ylabel('class')
 plt.title('Boundary for train data')
 plt.show()
 
-data = np.genfromtxt("test_data",delimiter=',')
+data = np.genfromtxt("../features/test_data",delimiter=',')
 m=data.size
 b=np.ones(m)
 k=np.vstack([b,data])
