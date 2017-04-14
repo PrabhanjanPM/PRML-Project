@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage[colorinlistoftodos]{todonotes}
+\lstset
+{
+	language=Octave,
+	basicstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1
+	breaklines=true
+	breakatwhitespace=false
+}
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE National Institute of Technology\\[0.2cm]Karnataka}\\[0.6cm] % Name of your university/college
+\textsc{\Large EC447 Pattern Recognition and Machine Learning}\\[0.5cm] % Major heading such as course name
+\textsc{\large Report}\\[0.5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Neural Networks}\\[0.3cm] % Title of your document
+\HRule \\[0.3cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} \small 
+Aniket Rege\\ % Your name
+Roll number- \textsc{14EC108}
+\end{flushleft}
+\begin{flushleft} \small
+Megha Mantur\\ % Your name
+Roll number- \textsc{14EC131}
+\end{flushleft}
+\begin{flushleft} \small
+Prabhanjan Mannari\\ % Your name
+Roll number- \textsc{14EC135}
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \small
+Sheetal Jadhav\\ % Your name
+Roll number- \textsc{14EC222}
+\end{flushright}
+\begin{flushright} \small
+Rakesh Bandaru\\ % Your name
+Roll number- \textsc{14EC210}
+\end{flushright}
+\begin{flushright} 
+Supervisor\\ % Your name
+Deepu Vijayasenan
+\end{flushright}
+\end{minipage}\\[2cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\today}\\[0.3cm] % Date, change the \today to a set date if you want to be precise
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+ 
+%----------------------------------------------------------------------------------------
+\begin{figure}[ht]
+\centering
+	\includegraphics[width=0.3\textwidth]{NITK_Emblem.png}
+\end{figure}
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+\section{Description of the data}
+\subsection{Features and dimension}
+The features were extracted from the audio files  using opensmile tool and emobase configuration. The original feature dimension of 989 was reduced to 1 using Linear Discriminant Analysis
+\subsection{Training and test samples}
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+		\hline 
+			   & Genuine & Spoofed \\
+			   \hline
+		Train data & 1708    & 1708     \\
+		\hline 
+		Test data  & 760     & 950	 \\		
+		\hline
+	\end{tabular}
+\end{center}
+\section{Description of the Neural Network}
+\begin{itemize}
+	\item Number of hidden layers - 1
+	\item Number of neurons in the hidden layer - 3
+	\item Activation function used for each neuron - sigmoid
+	\item Number of epochs - 200
+\end{itemize}
+\section{Results}
+\subsection{Confusion Matrix}
+\begin{itemize}
+	\item Train data
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline 
+		1507 &0 	\\
+		\hline
+		1    & 1508  	\\
+		\hline
+	\end{tabular}
+\end{center}
+Accuracy - 0.999668435013\\
+Precision - 0.999336870027\\
+Recall - 1.0\\
+\clearpage
+	\item Test data
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline 
+		873&76	\\
+		\hline
+		73&688	\\
+		\hline
+	\end{tabular}
+\end{center}
+Accuracy - 0.911695906433\\
+Precision - 0.923566878981\\
+Recall - 0.916754478398\\
+
+\end{itemize}
+
+
+\end{document}
