@@ -20,10 +20,10 @@
 	breaklines=true
 	breakatwhitespace=false
 }
+
 \begin{document}
 
 \begin{titlepage}
-
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
 
 \center % Center everything on the page
@@ -123,6 +123,12 @@ The features were extracted from the audio files  using opensmile tool and emoba
 	\item Activation function used for each neuron - sigmoid
 	\item Number of epochs - 200
 \end{itemize}
+\section{Selection of Parameters}
+\begin{itemize}
+	\item Due to the linearly separable nature of the given audio file data set, the  choice of number of layers and hidden neurons was not significant, and did not impact measures of accuracy, precision, or recall appreciably. Hence a choice of a single layer with three hidden neurons was made.
+	\item Due to the linear behavior of data, regularization or the addition of non-linearities was not required
+	\item Objective function choice as sigmoid over hyperbolic tangent or relu function gave best results
+\end{itemize}	
 \section{Results}
 \subsection{Confusion Matrix}
 \begin{itemize}
@@ -139,7 +145,7 @@ The features were extracted from the audio files  using opensmile tool and emoba
 Accuracy - 0.999668435013\\
 Precision - 0.999336870027\\
 Recall - 1.0\\
-\clearpage
+%\clearpage
 	\item Test data
 \begin{center}
 	\begin{tabular}{|c|c|}
@@ -153,8 +159,9 @@ Recall - 1.0\\
 Accuracy - 0.911695906433\\
 Precision - 0.923566878981\\
 Recall - 0.916754478398\\
-
+\clearpage
 \end{itemize}
 
-
+\section{Conclusion}
+We have observed our best results using Artificial Neural Networks (ANN) classifier over a Gaussian Mixture Model (GMM) classifer or a Logistic Regression (LR) based classifer. This was primarily due to the best method implementation (GMM) extracting and using different features for classification than what we were able to extract. Regression was observed to give good results due to the linear separability of the given audio data. Artificial Neural Networks gave better results than regression due its nature of generating its own features in the hidden feature layer, and applying a logistic regression in the classification layer.
 \end{document}
